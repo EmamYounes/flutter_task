@@ -35,6 +35,19 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+  assets:
+    - assets/gondola.jpg
+    - assets/hotel0.jpg
+    - assets/hotel1.jpg
+    - assets/hotel2.jpg
+    - assets/murano.jpg
+    - assets/newdelhi.jpg
+    - assets/newyork.jpg
+    - assets/paris.jpg
+    - assets/santorini.jpg
+    - assets/saopaulo.jpg
+    - assets/stmarksbasilica.jpg
+    - assets/venice.jpg
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
