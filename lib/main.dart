@@ -1,3 +1,4 @@
+import 'package:fancy_bar/fancy_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_task/top_destinations/view/TopDestinationsListView.dart';
@@ -29,6 +30,32 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: FancyBottomBar(
+        type: FancyType.FancyV1, // Fancy Bar Type
+        items: [
+          FancyItem(
+            textColor: Colors.black,
+            title: 'Home',
+            icon: Icon(
+              Icons.home,
+              color: Colors.grey,
+            ),
+          ),
+          FancyItem(
+            textColor: Colors.black,
+            title: 'Search',
+            icon: Icon(Icons.search, color: Colors.grey),
+          ),
+          FancyItem(
+            textColor: Colors.black,
+            title: 'Settings',
+            icon: Icon(Icons.settings, color: Colors.grey),
+          ),
+        ],
+        onItemSelected: (index) {
+          print(index);
+        },
+      ),
       appBar: null,
       body: Container(
         color: Color(0xFFF5F5F5),
@@ -49,6 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             buildTopExclusiveTitle(),
             ExclusiveHotelListView(),
+            SizedBox(height: 50,),
           ],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
