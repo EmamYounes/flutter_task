@@ -133,7 +133,7 @@ class _TopDestinationsListState extends State<TopDestinationsListView> {
                     style: TextStyle(
                         fontSize: 18,
                         color: Colors.black,
-                        fontWeight: FontWeight.normal),
+                        fontWeight: FontWeight.bold),
                   ),
                   Text(
                     destinationModel.description,
