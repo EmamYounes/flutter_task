@@ -29,7 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: null,
       body: Container(
-        color: Colors.white,
+        color: Color(0xFFF5F5F5),
         child: ListView(
           children: <Widget>[
             SizedBox(

@@ -29,25 +29,36 @@ class _TopDestinationsListState extends State<TopDestinationsListView> {
         });
   }
 
-  Container buildItem(AsyncSnapshot<List<DestinationModel>> snapshot) {
+  Widget buildItem(AsyncSnapshot<List<DestinationModel>> snapshot) {
     return Container(
-      height: 150,
+      height: 270,
       child: ListView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         itemCount: snapshot.data.length,
         itemBuilder: (BuildContext context, int index) {
           DestinationModel model = snapshot.data[index];
-          return Container(
-            margin: EdgeInsets.all(10),
-            child: Stack(
-              children: <Widget>[
-                buildImage(model),
-                buildTextOnImage(model),
-              ],
-            ),
-          );
+          return buildDestinationCardView(model);
         },
+      ),
+    );
+  }
+
+  Container buildImageContainer(DestinationModel model) {
+    return Container(
+      margin: EdgeInsets.all(10),
+      child: Row(
+        children: <Widget>[
+          SizedBox(
+            width: 20,
+          ),
+          Stack(
+            children: <Widget>[
+              buildImage(model),
+              buildTextOnImage(model),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -92,10 +103,52 @@ class _TopDestinationsListState extends State<TopDestinationsListView> {
         image: AssetImage(
           model.imageUrl,
         ),
-        height: 150,
-        width: 150,
+        height: 170,
+        width: 170,
         fit: BoxFit.cover,
       ),
+    );
+  }
+
+  Widget buildDestinationCardView(DestinationModel destinationModel) {
+    return Stack(
+      children: <Widget>[
+        Positioned(
+          bottom: 0,
+          child: Container(
+            margin: EdgeInsets.all(20),
+            height: 100,
+            width: 200,
+            color: Colors.white,
+            child: Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Spacer(),
+                  Text(
+                    destinationModel.activities.length.toString() +
+                        ' activities',
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.black,
+                        fontWeight: FontWeight.normal),
+                  ),
+                  Text(
+                    destinationModel.description,
+                    style: TextStyle(
+                        fontSize: 12,
+                        color: Color(0xFFBDBDBD),
+                        fontWeight: FontWeight.normal),
+                  )
+                ],
+              ),
+            ),
+          ),
+        ),
+        buildImageContainer(destinationModel),
+      ],
     );
   }
 }
