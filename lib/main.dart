@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_task/top_destinations/view/TopDestinationsListView.dart';
 
+import 'exclusive_hotel/view/ExclusiveHotelListView.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -42,6 +44,11 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             buildTopDestinationsTitle(),
             TopDestinationsListView(),
+            SizedBox(
+              height: 20,
+            ),
+            buildTopExclusiveTitle(),
+            ExclusiveHotelListView(),
           ],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
@@ -118,6 +125,32 @@ class _MyHomePageState extends State<MyHomePage> {
           padding: const EdgeInsets.all(12.0),
           child: Text(
             'Top Destinations',
+            style: TextStyle(
+                fontSize: 18, color: Colors.black, fontWeight: FontWeight.bold),
+          ),
+        ),
+        Spacer(),
+        Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Text(
+            'see all',
+            style: TextStyle(
+                fontSize: 14,
+                color: Colors.cyan,
+                fontWeight: FontWeight.normal),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Row buildTopExclusiveTitle() {
+    return Row(
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Text(
+            'Exclusive Hotel',
             style: TextStyle(
                 fontSize: 18, color: Colors.black, fontWeight: FontWeight.bold),
           ),
